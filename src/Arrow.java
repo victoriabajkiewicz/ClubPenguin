@@ -1,54 +1,54 @@
 import java.awt.*;
 
 public class Arrow {
-    private int size;
     private Color color;
     private int x;
     private int y;
     private int speed;
 
-    public Arrow(int x, int y){
-        this.x = x;
-        this.y = y;
-        speed = 2;
-        color = Color.PINK;
-        size = 10;
-    }
 
-
-    public Arrow(int x, int y, int speed, Color color, int size){
+    public Arrow(int x, int y, int speed, Color color){
         this.x = x;
         this.y = y;
         this.speed = speed;
         this.color = color;
-        this.size = size;
     }
 
-    public void draw(Graphics g2){
+
+    public void drawRight(Graphics g2){
         g2.setColor(color);
-        g2.fillOval(x,y,size, size);
+        int[] xArray = {0,6,6,9,6,6,0};
+        int[] yArray = {5,5,6,4,2,3,3};
+        g2.fillPolygon(xArray,yArray,7);
+
     }
+    public void drawUp(Graphics g2){
+        g2.setColor(color);
+        int[] xArray = {1,3,3,4,2,0,1};
+        int[] yArray = {0,0,6,6,9,6,6};
+        g2.fillPolygon(xArray,yArray,7);
+
+    }
+    public void drawLeft(Graphics g2){
+        g2.setColor(color);
+        int[] xArray = {9,9,3,3,0,3,3};
+        int[] yArray = {5,3,3,2,4,6,5};
+        g2.fillPolygon(xArray,yArray,7);
+
+    }
+    public void drawDown(Graphics g2){
+        g2.setColor(color);
+        int[] xArray = {1,3,3,4,2,0,1};
+        int[] yArray = {9,9,3,3,0,3,3};
+        g2.fillPolygon(xArray,yArray,7);
+
+    }
+
+
 
 
     public void move(){
-        x+=speed;
         y+=speed;
-    }
-
-    public void bounce(int w, int l){
-        if(x >= w-size){
-            speed*=-1;
-        }
-        if(x < 0){
-            speed*=-1;
-        }
-        if(y >= l-size){
-            speed*=-1;
-        }
-        if(y< 0){
-            speed*=-1;
-        }
-
     }
 
 

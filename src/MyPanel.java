@@ -7,28 +7,43 @@ public class MyPanel extends JPanel {
     int xVel = 2;
     int yVel = 2;
 
+    int random = 0;
 
-
-    Arrow myArrow;
+    //Arrow myArrow;
     Arrow[] arrow20;
     public MyPanel(){
-        setBackground(Color.GREEN);
-        myArrow = new Arrow(200, 300);
+        setBackground(Color.BLACK);
+
         setPreferredSize(new Dimension(500, 500));
 
-        fillRect(200,100,10,50);
+
+
 
         arrow20 = new Arrow[20];
         for(int i = 0; i < arrow20.length; i++){
-          //  int size = ;
-            int x =  (int)(Math.random()*500);
-            int y = (int)(Math.random()*500);
-            int randSpeed = (int)(Math.random()*5)+1;
-            int randR = (int)(Math.random()*255);
-            int randG = (int)(Math.random()*255);
-            int randB = (int)(Math.random()*255);
-            Color randColor = new Color(randR, randG, randB);
-            arrow20[i] = new Arrow(x, y, randSpeed, randColor, size);
+
+            int x =  400;
+            int y = 0;
+            int speed = 5;
+            random = (int)((Math.random()*4)+1);
+
+            Color randColor = Color.BLACK;
+
+           if(random == 1){
+              randColor = Color.RED;
+
+           }
+           else if(random == 2){
+               randColor = Color.YELLOW;
+           }
+           else if(random == 3){
+                randColor = Color.GREEN;
+           }
+           else if(random == 4){
+                randColor = Color.BLUE;
+           }
+
+            arrow20[i] = new Arrow(x, y, speed, randColor);
         }
 
 
@@ -39,16 +54,30 @@ public class MyPanel extends JPanel {
     public void paintComponent(Graphics g){
         //super goes up a hierarchy level and calls the method
         super.paintComponent(g);
-        System.out.println("hi");
-        myArrow.draw(g);
-        myArrow.move();
-        myArrow.bounce(getWidth(), getHeight());
+
+
+//draws arrow depending on its color and randomization
         for(int i = 0; i < arrow20.length; i++){
-            arrow20[i].draw(g);
-            arrow20[i].move();
-            arrow20[i].bounce(getWidth(), getHeight());
+            if(random == 1){
+               arrow20[i].drawRight(g);
+                arrow20[i].move();
+            }
+            else if(random == 2){
+                arrow20[i].drawUp(g);
+                arrow20[i].move();
+            }
+            else if(random == 3){
+                arrow20[i].drawLeft(g);
+                arrow20[i].move();
+            }
+            else if(random == 4){
+                arrow20[i].drawDown(g);
+                arrow20[i].move();
+            }
+
+
         }
-        //yLoc++;
+
 
 
 
