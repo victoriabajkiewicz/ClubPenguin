@@ -48,7 +48,8 @@ public class Arrow {
 
 
     public void move(){
-        y+=speed;
+       // y+=speed;
+        //for loop for x and y array to make it move
     }
 
 

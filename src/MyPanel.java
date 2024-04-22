@@ -1,11 +1,17 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class MyPanel extends JPanel {
-    int xLoc = 400;
-    int yLoc = -20;
-    int xVel = 2;
-    int yVel = 2;
+//    int xLoc = 400;
+//    int yLoc = -20;
+//    int xVel = 2;
+//    int yVel = 2;
+
+
+
+
 
     int random = 0;
 
@@ -15,6 +21,26 @@ public class MyPanel extends JPanel {
         setBackground(Color.BLACK);
 
         setPreferredSize(new Dimension(500, 500));
+setFocusable(true);
+requestFocus();
+        addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                System.out.println(e.getKeyCode());
+                if(e.getKeyCode()==37){
+                    //set image
+
+                }
+            }
+        });
+
+
+        //left = 37
+        //up = 38
+        //right = 39
+        //down = 40
+
+
 
 
 
@@ -49,6 +75,9 @@ public class MyPanel extends JPanel {
 
 
     }
+
+
+
 
     @Override
     public void paintComponent(Graphics g){
@@ -88,6 +117,8 @@ public class MyPanel extends JPanel {
         catch(InterruptedException e){
             System.out.println(e);
         }
+
+
 
 
         // calls paintComponent again
