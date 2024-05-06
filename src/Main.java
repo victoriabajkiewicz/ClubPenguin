@@ -37,9 +37,9 @@ JFrame frame = new JFrame();
 
 
         frame.add(panel);
-        frame.pack();
+       // frame.pack();
         frame.setVisible(true);
-        panel.setLayout(new BorderLayout());
+       // panel.setLayout(new BorderLayout());
         panel.setBackground(new Color(57,150,100));
 
 

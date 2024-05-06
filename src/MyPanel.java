@@ -28,6 +28,37 @@ requestFocus();
             public void keyPressed(KeyEvent e) {
                 System.out.println(e.getKeyCode());
                 if(e.getKeyCode()==37){
+
+                    //set image
+
+                }
+            }
+        });
+        addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                System.out.println(e.getKeyCode());
+                if(e.getKeyCode()==38){
+                    //set image
+
+                }
+            }
+        });
+        addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                System.out.println(e.getKeyCode());
+                if(e.getKeyCode()==39){
+                    //set image
+
+                }
+            }
+        });
+        addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                System.out.println(e.getKeyCode());
+                if(e.getKeyCode()==40){
                     //set image
 
                 }
