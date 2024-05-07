@@ -9,6 +9,7 @@ public class MyPanel extends JPanel {
 //    int xVel = 2;
 //    int yVel = 2;
 
+    int points = 0;
 
 
 
@@ -114,6 +115,8 @@ requestFocus();
     public void paintComponent(Graphics g){
         //super goes up a hierarchy level and calls the method
         super.paintComponent(g);
+        g.setColor(Color.GRAY);
+        g.fillRect(0,150,100,100);
 
 
 //draws arrow depending on its color and randomization

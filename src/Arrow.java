@@ -13,6 +13,7 @@ public class Arrow {
         this.speed = speed;
         this.color = color;
     }
+
     int[] xArrayR = {0,60,60,90,60,60,0};
     int[] yArrayR = {50,50,60,40,20,30,30};
 
