@@ -11,7 +11,7 @@ public class MyPanel extends JPanel {
 
     int points = 0;
 
-
+public static int code = 0;
 
 
     int random = 0;
@@ -19,11 +19,16 @@ public class MyPanel extends JPanel {
     //Arrow myArrow;
     Arrow[] arrow20;
     public MyPanel(){
+
+
+
+        
         setBackground(Color.BLACK);
 
         setPreferredSize(new Dimension(500, 500));
-setFocusable(true);
-requestFocus();
+//keylistene
+        setFocusable(true);
+        requestFocus();
         addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
@@ -31,16 +36,25 @@ requestFocus();
                 if(e.getKeyCode()==37){
 
                     //set image
+                   // leftLabel.setVisible(true);
+//getJLabel.setVisible(true);
+                     code = e.getKeyCode();
+                    
+
 
                 }
             }
         });
+
+      
+        
         addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 System.out.println(e.getKeyCode());
                 if(e.getKeyCode()==38){
                     //set image
+                    code = e.getKeyCode();
 
                 }
             }
@@ -51,6 +65,7 @@ requestFocus();
                 System.out.println(e.getKeyCode());
                 if(e.getKeyCode()==39){
                     //set image
+                    code = e.getKeyCode();
 
                 }
             }
@@ -61,18 +76,12 @@ requestFocus();
                 System.out.println(e.getKeyCode());
                 if(e.getKeyCode()==40){
                     //set image
+                     code = e.getKeyCode();
+                    
 
                 }
             }
         });
-
-
-        //left = 37
-        //up = 38
-        //right = 39
-        //down = 40
-
-
 
 
 
@@ -110,7 +119,7 @@ requestFocus();
 
 
 
-
+    
     @Override
     public void paintComponent(Graphics g){
         //super goes up a hierarchy level and calls the method

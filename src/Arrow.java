@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.image.ImageObserver;
 
 public class Arrow {
     private Color color;
@@ -6,6 +7,8 @@ public class Arrow {
     private int y;
     private int speed;
 
+   // Image penguin = new Image("Images/penguinD.png");
+   
 
     public Arrow(int x, int y, int speed, Color color){
         this.x = x;
@@ -46,6 +49,8 @@ public class Arrow {
         g2.fillPolygon(xArrayD,yArrayD,7);
 
     }
+
+   
 
 
 
