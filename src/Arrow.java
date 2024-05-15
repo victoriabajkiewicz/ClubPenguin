@@ -3,17 +3,12 @@ import java.awt.image.ImageObserver;
 
 public class Arrow {
     private Color color;
-    private int x;
-    private int y;
-    private int speed;
+    
 
-   // Image penguin = new Image("Images/penguinD.png");
    
 
-    public Arrow(int x, int y, int speed, Color color){
-        this.x = x;
-        this.y = y;
-        this.speed = speed;
+    public Arrow(Color color){
+        
         this.color = color;
     }
 
@@ -29,6 +24,10 @@ public class Arrow {
     int[] xArrayD = {10,30,30,40,20,0,10};
     int[] yArrayD = {90,90,30,30,0,30,30};
 
+public Color getColor(){
+    return color;
+}
+    
     public void drawRight(Graphics g2){
         g2.setColor(color);
         g2.fillPolygon(xArrayR,yArrayR,7);

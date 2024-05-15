@@ -11,6 +11,16 @@ public class MyPanel extends JPanel {
 
     int points = 0;
 
+    ImageIcon leftPic = new ImageIcon("penguinL.png");
+    ImageIcon upPic = new ImageIcon("penguinU.png");
+    ImageIcon rightPic = new ImageIcon("penguinR.png");
+    ImageIcon downPic = new ImageIcon("penguinD.png");
+
+    JLabel leftLabel = new JLabel(leftPic);
+    JLabel upLabel = new JLabel(upPic);
+    JLabel rightLabel = new JLabel(rightPic);
+    JLabel downLabel = new JLabel(downPic);
+
 public static int code = 0;
 
 
@@ -20,8 +30,30 @@ public static int code = 0;
     Arrow[] arrow20;
     public MyPanel(){
 
+        // ImageIcon leftPic = new ImageIcon("penguinL.png");
+        // ImageIcon upPic = new ImageIcon("penguinU.png");
+        // ImageIcon rightPic = new ImageIcon("penguinR.png");
+        // ImageIcon downPic = new ImageIcon("penguinD.png");
+        leftPic.setImage(leftPic.getImage().getScaledInstance(200,200,Image.SCALE_DEFAULT));
+        upPic.setImage(upPic.getImage().getScaledInstance(200,200,Image.SCALE_DEFAULT));
+        rightPic.setImage(rightPic.getImage().getScaledInstance(200,200,Image.SCALE_DEFAULT));
+        downPic.setImage(downPic.getImage().getScaledInstance(200,200,Image.SCALE_DEFAULT));
 
 
+        // JLabel leftLabel = new JLabel(leftPic);
+        // JLabel upLabel = new JLabel(upPic);
+        // JLabel rightLabel = new JLabel(rightPic);
+        // JLabel downLabel = new JLabel(downPic);
+
+        add(leftLabel);
+        add(upLabel);
+        add(rightLabel);
+        add(downLabel);
+
+        leftLabel.setVisible(false);
+        rightLabel.setVisible(false);
+        upLabel.setVisible(false);
+        downLabel.setVisible(false);
         
         setBackground(Color.BLACK);
 
@@ -29,6 +61,10 @@ public static int code = 0;
 //keylistene
         setFocusable(true);
         requestFocus();
+        //left = 37
+        //up = 38
+        //right = 39
+        //down = 40
         addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
@@ -39,10 +75,31 @@ public static int code = 0;
                    // leftLabel.setVisible(true);
 //getJLabel.setVisible(true);
                      code = e.getKeyCode();
-                    
-
-
+                    leftLabel.setVisible(true);
+                    rightLabel.setVisible(false);
+                    upLabel.setVisible(false);
+                    downLabel.setVisible(false);
                 }
+                if(e.getKeyCode()==38){
+                    code = e.getKeyCode();
+                    leftLabel.setVisible(false);
+                    upLabel.setVisible(true);
+                    rightLabel.setVisible(false);
+                    downLabel.setVisible(false);
+                }
+                if(e.getKeyCode()==39){
+                    rightLabel.setVisible(true);
+                    leftLabel.setVisible(false);
+                    upLabel.setVisible(false);
+                    downLabel.setVisible(false);
+                }
+                if(e.getKeyCode()==40){
+                    downLabel.setVisible(true);
+                    upLabel.setVisible(false);
+                    leftLabel.setVisible(false);
+                    rightLabel.setVisible(false);
+                }
+                
             }
         });
 
@@ -89,9 +146,7 @@ public static int code = 0;
         arrow20 = new Arrow[20];
         for(int i = 0; i < arrow20.length; i++){
 
-            int x =  400;
-            int y = 0;
-            int speed = 5;
+            
             random = (int)((Math.random()*4)+1);
 
             Color randColor = Color.BLACK;
@@ -110,7 +165,7 @@ public static int code = 0;
                 randColor = Color.BLUE;
            }
 
-            arrow20[i] = new Arrow(x, y, speed, randColor);
+            arrow20[i] = new Arrow(randColor);
         }
 
 
@@ -130,19 +185,19 @@ public static int code = 0;
 
 //draws arrow depending on its color and randomization
         for(int i = 0; i < arrow20.length; i++){
-            if(random == 1){
+            if(arrow20[i].getColor() == Color.RED){
                arrow20[i].drawRight(g);
                 arrow20[i].move();
             }
-            else if(random == 2){
+            else if(arrow20[i].getColor() == Color.YELLOW){
                 arrow20[i].drawUp(g);
                 arrow20[i].move();
             }
-            else if(random == 3){
+            else if(arrow20[i].getColor() == Color.GREEN){
                 arrow20[i].drawLeft(g);
                 arrow20[i].move();
             }
-            else if(random == 4){
+            else if(arrow20[i].getColor() == Color.BLUE){
                 arrow20[i].drawDown(g);
                 arrow20[i].move();
             }
